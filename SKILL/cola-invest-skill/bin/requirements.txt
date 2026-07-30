@@ -1,7 +1,14 @@
 # cola_fetch 依赖清单
-# 仅一个第三方包：httpx（SEC / HK / CN 三个下载器共用）
+# 第三方包：
+#   - httpx   ：SEC / HK / CN 三个下载器共用
+#   - pymupdf ：读取 PDF（港股/A股 CID 中文年报，依赖其 Adobe CMap 反查还原），保留
+#   - lxml    ：读取美股 .htm 财报（DOM 解析，保留表格/章节结构），纯预编译 C 扩展 wheel，安装零编译不 OOM
 # 其余依赖（asyncio / json / re / pathlib / dataclasses / typing / logging 等）均为 Python 标准库。
 #
-# 安装：
-#     pip install -r requirements.txt
+# 安装：见 references/download_protocol.md §1（注意 pymupdf 安装需 dangerouslyDisableSandbox: true，否则 OOM；lxml 不需）
 httpx>=0.27,<1.0
+pymupdf
+lxml
+
+# ---- 开发依赖（仅供 IDE 类型检查，运行不需要；纯 .pyi 存根包，极小无编译）----
+lxml-stubs

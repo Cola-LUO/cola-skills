@@ -10,8 +10,12 @@
 
 ```bash
 # 1. 首次：建 venv + 装依赖（已有 .venv 则此两步可跳过）
+# ⚠ 下面 venv / pip 三条命令的工具调用必须带 dangerouslyDisableSandbox: true，
+#    否则 pymupdf（含原生 mupdf 库）安装内存峰值会顶破沙箱上限，被 OOM killer SIGKILL（exit 137）。
+#    （lxml 是预编译 C 扩展 wheel，加装零编译不 OOM，无需额外处理。）
 python3 -m venv <skill根>/bin/.venv
-<skill根>/bin/.venv/bin/pip install -r <skill根>/bin/requirements.txt
+<skill根>/bin/.venv/bin/pip install --no-cache-dir --upgrade pip >/dev/null 2>&1
+<skill根>/bin/.venv/bin/pip install --no-cache-dir -r <skill根>/bin/requirements.txt
 
 # 2. 之后：永远用 .venv 里的 python 跑
 <skill根>/bin/.venv/bin/python <skill根>/bin/cola_fetch.py download \
@@ -64,7 +68,7 @@ python3 -m venv <skill根>/bin/.venv
 
 ---
 
-## 4. 输出路径与命名
+## 4. 落盘路径与命名
 
 ```
 <workspace-root>/filings/<ticker>/
@@ -143,7 +147,7 @@ venv 建立与首次准备见 §1。调用一律用完整路径（`cola-fetch` �
 
 ## 8. 运行环境前提
 
-- `cola_fetch.py` 以相对路径调用（见上文调用契约），**不需要**预装到 PATH；首次运行时 agent 自动在 `bin/.venv/` 建立隔离 Python 环境并安装依赖（`httpx`），用户零操作。
+- `cola_fetch.py` 以相对路径调用（见上文调用契约），**不需要**预装到 PATH；首次运行时 agent 自动在 `bin/.venv/` 建立隔离 Python 环境并安装依赖（`httpx` + `pymupdf` + `lxml`），用户零操作。
 - 美股下载需要环境变量 `SEC_USER_AGENT`（**不是邮箱号本身**）；这是 SEC 公平访问规则要求的 User-Agent 字符串，SEC 建议 UA 采用官方示例格式 `CompanyName admin@company.com`（公司名 + 空格 + 联系邮箱，无括号、无版本号），例如 `ColaFetch admin@example.com`。这是合规要求，**不是 API key，不收费**。
 - 运行 skill 的 agent（CodeBuddy / Claude Code 等）必须具备 shell/terminal 工具，才能从无代码的 SKILL.md 触发本命令。
 
@@ -190,6 +194,6 @@ export SEC_USER_AGENT="ColaFetch 你的真实邮箱@example.com"
 
 ## 9. 与「信息来源」铁律的协同
 
-- 财报正文：以 `cola-fetch` 下载的官方 PDF 为**主源**（披露易 / 巨潮 / SEC 都是官方一手源）。
+- 财报正文：以 `cola-fetch` 下载的官方源为**主源**——港股/A股为 PDF、美股为 `.htm`（披露易 / 巨潮 / SEC 都是官方一手源）。
 - **不要再下一份同公司同市场的财报来充当"第二渠道"**——那不构成独立渠道，只会陷入死循环。
 - 数值类交叉验证：用联网检索（新闻 / 财经站点 / FMP）做容差比对，容差规则见 SKILL.md「信息来源」第 1 条。
