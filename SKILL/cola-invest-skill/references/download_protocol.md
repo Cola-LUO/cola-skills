@@ -1,6 +1,6 @@
 # 下载协议（download_protocol）
 
-本文件给出 `cola-fetch` 下载器的命令规范、市场映射与失败处理。`cola-fetch` 是一个**轻量外置 CLI**：只做"按 ticker 路由 → 发请求 → 落盘报告文件"，不调 docling、不调 LLM、不解析内容（解析交给运行 skill 的 agent 自身的文件阅读能力）。
+本文件给出 `cola-fetch` 下载器的命令规范、市场映射与失败处理。`cola-fetch` 是一个**轻量外置 CLI**：只做"按 ticker 路由 → 发请求 → 落盘报告文件"，不调 docling、不调 LLM、不解析内容。
 
 ---
 
