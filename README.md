@@ -1,8 +1,8 @@
-<center>
+<p align="center">
 <img src="https://xavatar.imedao.com/community/20257/1756462728830-1756462729251.jpg!180x180.png">
-</center>
+</p>
 
-# <center>cola-invest-skill使用说明</center>
+#  <p align="center">cola-invest-skill使用说明</p>
 
 ## 安装方式：
 
