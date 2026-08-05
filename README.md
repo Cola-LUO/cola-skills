@@ -2,12 +2,14 @@
 <img src="https://xavatar.imedao.com/community/20257/1756462728830-1756462729251.jpg!180x180.png">
 </p>
 
-#  <p align="center">cola-invest-skill使用说明</p>
+#  <p align="center">使用说明</p>
+
+## cola-invest-skill是一个结合<财报下载> ➕ <模板分析>的投资分析skill
 
 ## 安装方式：
 
 ```
-npx skills add https://github.com/Feng-Luo/cola-invest-skill --skill cola-invest-skill
+npx skills add https://github.com/Cola-LUO/cola-skills --skill cola-invest-skill
 ```
 ## 更新方式：
 ```
