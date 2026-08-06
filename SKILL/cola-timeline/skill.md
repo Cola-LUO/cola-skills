@@ -18,12 +18,12 @@ description: 梳理某个事件的时间线，用来关注事情发展的脉络�
 - xxxx年xx月xx日（～xxxx年xx月xx日） - 事件内容。[[来源网站](网址)]
 
     例如：
-    - 2025年12月1日 - 打鱼菜市场发生火灾，造成10条鱼重伤。[[新浪新闻](https://k.sina.com.cn/article_3266943013_mc2b9982503301lbi6.html?from=news)）]。
+    - 2025年12月1日 - 打鱼菜市场发生火灾，造成10条鱼重伤。[[新浪新闻](https://k.sina.com.cn/article_3266943013_mc2b9982503301lbi6.html?from=news)]。
     
         或
 
-    - 2025年12月1日～2025年12月2日 - 警方对打鱼菜市场火灾进行侦破。[[新浪新闻](https://k.sina.com.cn/article_3266943013_mc2b9982503301lbi6.html?from=news)）]。
+    - 2025年12月1日～2025年12月2日 - 警方对打鱼菜市场火灾进行侦破。[[新浪新闻](https://k.sina.com.cn/article_3266943013_mc2b9982503301lbi6.html?from=news)]。
 
-    注意：必须有网址、必须有网址、必须有网址！
+    注意：必须有来源、必须有网址、必须有网址、必须有网址！
 
 - 生成markdown。
