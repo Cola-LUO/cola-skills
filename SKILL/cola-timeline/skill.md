@@ -18,7 +18,7 @@ description: 梳理某个事件的时间线，用来关注事情发展的脉络�
 - xxxx年xx月xx日（～xxxx年xx月xx日） - 事件内容。[[来源网站](网址)]
 
     例如：
-    - 2025年12月1日 - 打鱼菜市场发生火灾，造成10条鱼重伤。[[新浪新闻](https://k.sina.com.cn/article_3266943013_mc2b9982503301lbi6.html?from=news)]。
+    - 2025年12月1日 - 打鱼菜市场发生火灾，造成10条鱼重伤。[[x浪新闻](https://k.sina.com.cn/article_3263013_mc2b9982503301lbi6.html?from=news)]。
     
         或
 
