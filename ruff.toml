@@ -1,0 +1,13 @@
+# cola-invest-skill 仓库级 lint 配置
+# 保守策略：只开 ruff 的"真问题"规则子集（E4/E7/E9 + F），
+# 不启用风格现代化建议（UP/SIM/RUF 等），避免对存量代码造成大 diff。
+# 风格统一可后续单独做一次 ruff check --fix 清理后再开启。
+target-version = "py311"
+
+[lint]
+select = ["E4", "E7", "E9", "F"]
+
+[lint.per-file-ignores]
+# cola_fetch.py 运行期把 bin/ 插入 sys.path 后才 import
+# download_financial_report，E402（模块级 import 不在顶部）是有意设计
+"SKILL/cola-invest-skill/bin/cola_fetch.py" = ["E402"]
